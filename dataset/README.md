@@ -1,7 +1,53 @@
-As this dataset is independently constructed by our team, team members reserve the right to determine its public availability. Given the significance of the dataset, we have decided not to release it to the public for the time being. Researchers interested in this dataset may contact team members to request access. The detailed process of dataset collection and construction is described as follows:
-1. Dataset Collection
-Dataset collection consists of two core steps: fabricating concrete members with exposed rebars and capturing footage in a simulated underwater environment. Specifically, the team built concrete members in an experimental water tank, with portions of reinforcement intentionally exposed in advance. An underwater camera was then used to record videos under varying illumination and turbidity conditions. All videos are in MP4 format with a resolution of 1920×1080. Through multiple shooting sessions, the team collected approximately 2 hours of video footage in total. These materials cover illumination intensities ranging from extremely dim to relatively bright (including uneven light distribution) and turbidity levels from clear to turbid, ensuring favorable data diversity.
-2. Dataset Construction
-After video acquisition, the team extracted frames from the videos at an interval of 15 frames. Following data cleaning, a total of 1051 original image frames were retained. These 1051 images were split into a training set, a validation set, and a test set at a ratio of 6:3:1, with approximately 630 images for training, 315 for validation, and 106 for testing.
-To enhance model generalization, data augmentation was performed on the training set. Each original training image was used to generate additional samples via multiple transformations, including rotation (±45 degrees), horizontal flipping, and scaling, which expanded the training set by 4 times to approximately 2520 images. The final dataset comprises 2944 images in total (2520 for training, 315 for validation, and 109 for testing).
-All images were annotated frame by frame by team members using the Roboflow web-based annotation tool, with bounding boxes marking exposed rebar regions. During annotation, rectangular bounding boxes were drawn around clearly visible exposed rebar areas and labeled as "rebar"; the annotations were saved as label files in YOLO format. When exporting the dataset, all images were uniformly resized to 640×640 through proportional scaling and padding, yielding a raw image dataset.
+# 📦 Underwater Exposed Rebar Dataset
+
+## 📜 Dataset Availability
+As this dataset is independently constructed by our team, team members reserve the right to determine its public availability. Given the significance of the dataset, we have decided not to release it to the public for the time being. Researchers interested in this dataset may contact team members to request access.
+
+The detailed process of dataset collection and construction is described as follows:
+
+---
+
+## 📁 1. Dataset Collection
+
+Dataset collection consists of two core steps: fabricating concrete members with exposed rebars and capturing footage in a simulated underwater environment.
+
+Specifically, the team built concrete members in an experimental water tank, with portions of reinforcement intentionally exposed in advance. An underwater camera was then used to record videos under varying illumination and turbidity conditions.
+
+| Item | Details |
+| :--- | :--- |
+| Video format | MP4 |
+| Resolution | 1920×1080 |
+| Total footage | Approximately 2 hours of video material |
+| Coverage | Illumination intensities ranging from extremely dim to relatively bright (including uneven light distribution); turbidity levels from clear to turbid, ensuring favorable data diversity |
+
+---
+
+## 💡 2. Dataset Construction
+
+After video acquisition, the team extracted frames from the videos at an interval of 15 frames. Following data cleaning, a total of **1051 original image frames** were retained.
+
+### Train / Validation / Test Split
+These 1051 images were split into a training set, a validation set, and a test set at a ratio of **6:3:1**:
+- Training set: approximately 630 images
+- Validation set: approximately 315 images
+- Test set: approximately 106 images
+
+### Data Augmentation
+To enhance model generalization, data augmentation was performed on the training set. Each original training image was used to generate additional samples via multiple transformations:
+- Rotation (±45 degrees)
+- Horizontal flipping
+- Scaling
+
+The training set was expanded by 4 times to approximately 2520 images through augmentation.
+
+### Final Dataset Scale
+The final dataset comprises **2944 images in total**:
+- Training set: 2520 images
+- Validation set: 315 images
+- Test set: 109 images
+
+### Annotation & Export
+All images were annotated frame by frame by team members using the Roboflow web-based annotation tool, with bounding boxes marking exposed rebar regions.
+- Label class: `rebar` (rectangular bounding boxes drawn around clearly visible exposed rebar areas)
+- Annotation format: YOLO format label files
+- Export specification: All images were uniformly resized to 640×640 through proportional scaling and padding, yielding the raw image dataset.
