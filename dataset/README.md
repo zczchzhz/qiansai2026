@@ -1,6 +1,8 @@
 # 📦 Underwater Exposed Rebar Dataset
 
 ## 📜 Dataset Availability
+A major reason we cannot provide our custom dataset here is its large size; including it with the code would cause us to exceed the official size limits for the code folder.
+
 As this dataset is independently constructed by our team, team members reserve the right to determine its public availability. Given the significance of the dataset, we have decided not to release it to the public for the time being. Researchers interested in this dataset may contact team members to request access.
 
 The detailed process of dataset collection and construction is described as follows:
